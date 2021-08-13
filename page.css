@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --menuStrokesLength: 45px;
+  --menuStrokesHeight: 5px;
+  --menuStrokesBorder: 5px;
+}
+body {
+  background: #000000;
+}
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+.menu .burger {
+  width: var(--menuStrokesLength);
+  height: var(--menuStrokesHeight);
+  border-radius: var(--menuStrokesBorder);
+  background: #FFFFFF;
+  transition: 0.5s ease-in-out;
+}
+.menu .burger::before,
+.menu .burger::after {
+  content: '';
+  width: var(--menuStrokesLength);
+  height: var(--menuStrokesHeight);
+  position: absolute;
+  border-radius: var(--menuStrokesBorder);
+  background: #FFFFFF;
+  transition: all 0.5s ease-in-out;
+}
+.menu .burger::before {
+  transform: translateY(-14px);
+}
+.menu .burger::after {
+  transform: translateY(14px);
+}
+.menu.open {
+  background: #CA3216;
+}
+.menu.open .burger {
+  background: transparent;
+  transform: translateX(-50px);
+}
+.menu.open .burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu.open .burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
